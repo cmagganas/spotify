@@ -11,7 +11,7 @@ This application allows you to create a playlist via Spotify’s Web API with a 
 
 Drop-down descriptions:
 
-   Using the parameters made available by Spotify’s Web API and a few filters I myself included, we can tune the music recommendations we want in our playlist.
+   Using the parameters made available by [Spotify’s Web API](https://developer.spotify.com/documentation/web-api/) and a few filters I myself included, we can tune the music recommendations we want in our playlist.
 
    * Genre: spotify labeled genre
    * Number of Tracks: the maximum number of songs to put in playlist
