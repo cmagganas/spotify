@@ -11,14 +11,14 @@ This application allows you to create a playlist via Spotify’s Web API with a 
 
 Drop-down descriptions:
 
-&nbsp;Using the parameters made available by Spotify’s Web API and a few filters I myself included, we can tune the music recommendations we want in our playlist.
+   Using the parameters made available by Spotify’s Web API and a few filters I myself included, we can tune the music recommendations we want in our playlist.
 
-&nbsp;Genre: spotify labeled genre
-&nbsp;Number of Tracks: the maximum number of songs to put in playlist
-&nbsp;Popularity: what popularity range to filter
-&nbsp;Mood:
-&nbsp;&nbsp;happy: high energy, high valence (positive)
-&nbsp;&nbsp;chill: low energy, high valence (positive)
-&nbsp;&nbsp;angry:  high energy, low valence (negative)
-&nbsp;&nbsp;sad: low energy, low valence (negative)
-&nbsp;Release Date: when the songs were released
+   * Genre: spotify labeled genre
+   * Number of Tracks: the maximum number of songs to put in playlist
+   * Popularity: what popularity range to filter
+   * Mood:
+     * happy: high energy, high valence (positive)
+     * chill: low energy, high valence (positive)
+     * angry:  high energy, low valence (negative)
+     * sad: low energy, low valence (negative)
+   * Release Date: when the songs were released
