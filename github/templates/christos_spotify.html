@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Christos Magganas - Spotify Playlist Wizard </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="icon" type="image/png" href="/static/img/favicon.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/static/css/styles.css" rel="stylesheet" />
+        <style>
+    	   body {
+            background: url("/static/img/crssd_photo_snip2.JPG") no-repeat center center fixed;
+            background-size: cover;
+    	   }
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">CHRISTOS MAGGANAS</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="/static/img/profile.jpg" alt="" /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">Home</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- Spotify -->
+            <section class="spotify-section" id="spotify">
+                <center>
+                <div class="spotify-section-content">
+                        <h1 class="mb-0">
+                            <!-- Spotify Title -->
+                            <span class="text-primary">Spotify App</span>
+                        </h1>
+                        <h3>
+                        {% if display_name %}
+                        Hello {{display_name}},
+                        {% else %}
+                        Hello World,
+                        {% endif %}
+                        </h3>
+                        this application allows you to create a playlist via <a href="https://developer.spotify.com/documentation/web-api/">Spotify’s Web API</a> with the below criteria.
+                        <br>Sign in to allow app to personalize the playlist to your taste <img src="https://www.smileysapp.com/emojis/song-note-smiley.png" alt="smiley music emioji" width="25" height="25">
+                     <!--   <br>The drop-downs options you see below will help you filter through the recommended songs that Spotify provides to create a playlist that is personalized for you.-->
+	                    <!--<br>Clicking <b>Generate Quick Playlist</b> (without having to sign in to Spotify) allows anyone to create a playlist with some music they might want to hear based on the options they select.-->
+	                    <!--<br>To access the other two buttons, simply sign in to Spotify with the sign in button. By signing in, you are then able to create a playlist with recommended songs that are based on your personal music taste (ie. your top songs).-->
+	                    <!--<br>Clicking <b>Generate Unique Playlist will</b> create a playlist with recommendations based on your music taste.-->
+                     <!--   <br>Clicking <b>Generate Collaborative Playlist w/ me</b> will create a playlist with recommendations based on both your music taste as well my own.-->
+                     <!--   <br>Try different options to see what recommendations you like!-->
+                        <p>&nbsp;</p>
+                        <form action="/spotify/" method="post">
+                            <p>
+                                {% if signed_in %}
+                                Release Date:
+                                <select required id="sel-release" name="release_date">
+                                <option value="any">any</option>
+                                <option value="last_year">last year</option>
+                                <!--<option value="last_month">last month</option>-->
+                                <!--date ranges TBD-->
+                                </select>
+                                {% else %}
+                                Genre:
+                                <select id="sel-genre" name="genre">
+                                <!--<option value="any">any genre</option>-->
+                                <!--<option value="dance">dance</option>-->
+                                <option value="acoustic">acoustic</option><option value="afrobeat">afrobeat</option><option value="alt-rock">alt-rock</option><option value="alternative">alternative</option><option value="ambient">ambient</option><option value="anime">anime</option><option value="black-metal">black-metal</option><option value="bluegrass">bluegrass</option><option value="blues">blues</option><option value="bossanova">bossanova</option><option value="brazil">brazil</option><option value="breakbeat">breakbeat</option><option value="british">british</option><option value="cantopop">cantopop</option><option value="chicago-house">chicago-house</option><option value="children">children</option><option value="chill">chill</option><option value="classical">classical</option><option value="club">club</option><option value="comedy">comedy</option><option value="country">country</option><option selected="selected" value="dance">dance</option><option value="dancehall">dancehall</option><option value="death-metal">death-metal</option><option value="deep-house">deep-house</option><option value="detroit-techno">detroit-techno</option><option value="disco">disco</option><option value="disney">disney</option><option value="drum-and-bass">drum-and-bass</option><option value="dub">dub</option><option value="dubstep">dubstep</option><option value="edm">edm</option><option value="electro">electro</option><option value="electronic">electronic</option><option value="emo">emo</option><option value="folk">folk</option><option value="forro">forro</option><option value="french">french</option><option value="funk">funk</option><option value="garage">garage</option><option value="german">german</option><option value="gospel">gospel</option><option value="goth">goth</option><option value="grindcore">grindcore</option><option value="groove">groove</option><option value="grunge">grunge</option><option value="guitar">guitar</option><option value="happy">happy</option><option value="hard-rock">hard-rock</option><option value="hardcore">hardcore</option><option value="hardstyle">hardstyle</option><option value="heavy-metal">heavy-metal</option><option value="hip-hop">hip-hop</option><option value="holidays">holidays</option><option value="honky-tonk">honky-tonk</option><option value="house">house</option><option value="idm">idm</option><option value="indian">indian</option><option value="indie">indie</option><option value="indie-pop">indie-pop</option><option value="industrial">industrial</option><option value="iranian">iranian</option><option value="j-dance">j-dance</option><option value="j-idol">j-idol</option><option value="j-pop">j-pop</option><option value="j-rock">j-rock</option><option value="jazz">jazz</option><option value="k-pop">k-pop</option><option value="kids">kids</option><option value="latin">latin</option><option value="latino">latino</option><option value="malay">malay</option><option value="mandopop">mandopop</option><option value="metal">metal</option><option value="metal-misc">metal-misc</option><option value="metalcore">metalcore</option><option value="minimal-techno">minimal-techno</option><option value="movies">movies</option><option value="mpb">mpb</option><option value="new-age">new-age</option><option value="new-release">new-release</option><option value="opera">opera</option><option value="pagode">pagode</option><option value="party">party</option><option value="philippines-opm">philippines-opm</option><option value="piano">piano</option><option value="pop">pop</option><option value="pop-film">pop-film</option><option value="post-dubstep">post-dubstep</option><option value="power-pop">power-pop</option><option value="progressive-house">progressive-house</option><option value="psych-rock">psych-rock</option><option value="punk">punk</option><option value="punk-rock">punk-rock</option><option value="r-n-b">r-n-b</option><option value="rainy-day">rainy-day</option><option value="reggae">reggae</option><option value="reggaeton">reggaeton</option><option value="road-trip">road-trip</option><option value="rock">rock</option><option value="rock-n-roll">rock-n-roll</option><option value="rockabilly">rockabilly</option><option value="romance">romance</option><option value="sad">sad</option><option value="salsa">salsa</option><option value="samba">samba</option><option value="sertanejo">sertanejo</option><option value="show-tunes">show-tunes</option><option value="singer-songwriter">singer-songwriter</option><option value="ska">ska</option><option value="sleep">sleep</option><option value="songwriter">songwriter</option><option value="soul">soul</option><option value="soundtracks">soundtracks</option><option value="spanish">spanish</option><option value="study">study</option><option value="summer">summer</option><option value="swedish">swedish</option><option value="synth-pop">synth-pop</option><option value="tango">tango</option><option value="techno">techno</option><option value="trance">trance</option><option value="trip-hop">trip-hop</option><option value="turkish">turkish</option><option value="work-out">work-out</option><option value="world-music">world-music</option>
+                                <!--add genres-->
+                                </select>
+                                {% endif %}
+                                Number of Tracks:
+                                <input required type="number" id="sel-num" name="num_tracks" min=1 max=100 value=20>
+                                </select>
+                                Popularity:
+                                <select required id="sel-pop" name="popularity">
+                                <option value="any">any</option>
+                                <option value="popular">popular</option>
+                                <option value="esoteric">esoteric</option>
+                                <option value="obscure">obscure</option>
+                                <!--add popularity ranges-->
+                                </select>
+                                Mood:
+                                <select required id="sel-mood" name="mood">
+                                <option value="any">any</option>
+                                 set range energy + valence
+                                <option value="happy">happy</option>
+                                 high energy positive valence
+                                <option value="chill">chill</option>
+                                 low energy positive valence
+                                <option value="angry">angry</option>
+                                 high energy negative valence
+                                <option value="sad">sad</option>
+                                 low energy negative valence
+                                </select>
+                            </p>
+                            <h2>
+                                <!--<a href="/spotify/I" type="submit" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="false">Generate Quick Playlist</a>-->
+                                <button type="submit" value="I" name="playlist_type" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="false">Generate Quick Playlist</button>
+                                {% if signed_in %}
+                                    <button type="submit" value="II" name="playlist_type" class="btn btn-primary btn-lg gif" tabindex="-1" role="button">Generate Unique Playlist</button>
+                                    <button type="submit" value="III" name="playlist_type" class="btn btn-primary btn-lg gif" tabindex="-1" role="button">Generate Collaborative Playlist w/ me</button>
+                                {% else %}
+                                    <button type="submit" value="II" name="playlist_type" class="btn btn-primary btn-lg disabled dead-btn" tabindex="-1" role="button" aria-disabled="true">Generate Unique Playlist</button>
+                                    <button type="submit" value="III" name="playlist_type" class="btn btn-primary btn-lg disabled dead-btn" tabindex="-1" role="button" aria-disabled="true">Generate Collaborative Playlist w/ me</button>
+                                {% endif %}
+                            </h2>
+                        </form>
+                        <!--<div>-->
+                        <!--    <small>-->
+                        <!--    <div style="display:inline-block;">Simple Playlist to start listening right away<br>(no sign in)</div>-->
+                        <!--    <div style="display:inline-block;">Personalized Playlist<br>(sign in required)</div>-->
+                        <!--    <div style="display:inline-block;">Collaborative Playlist<br>(sign in required)</div>-->
+                        <!--    </small>-->
+                        <!--</div>-->
+                        <br>
+                        <a href="/spotify/sign_in">sign in</a>
+                        <br>
+                        <a href="/spotify/sign_out">sign out</a>
+                </div>
+                <div id="ajax_loader" style=" display: none; opacity: 1">
+                    <img src="/static/img/frisky_business.gif">
+                    <!--<img src="/static/img/cooking.gif">-->
+                </div>
+                <div>
+                    {% if playlist_embed_link %}
+                    <iframe src="{{playlist_embed_link}}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    {% endif %}
+                </div>
+                </center>
+            </section>
+        </div>
+        <script>
+        $( "a" ).hover(
+          function() {
+            $( this ).append( $( "<span> ***</span>" ) );
+          }, function() {
+            $( this ).find( "span" ).last().remove();
+          }
+        );
+        </script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="/static/js/scripts.js"></script>
+    </body>
+</html>
