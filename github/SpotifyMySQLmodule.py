@@ -6,7 +6,7 @@ def DataFrame_to_sql(dataFrame, user_id):
     sqlEngine = create_engine(
         "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
         username="",
-        password="@RKcmPfzL4i8yks",
+        password="",
         hostname="",
         databasename=""
         ), pool_recycle=3600)
