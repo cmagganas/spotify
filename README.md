@@ -1,5 +1,4 @@
 # spotify
-https://www.christos.app/spotify/
 
 This application allows you to create a playlist via Spotify’s Web API with a few tuning parameters. Sign in to allow app to personalize the playlist to your taste.
 
@@ -22,3 +21,6 @@ Drop-down descriptions:
      * angry:  high energy, low valence (negative)
      * sad: low energy, low valence (negative)
    * Release Date: when the songs were released
+
+TODO:
+[ ] Update my portfolio page, which no longer hosts this app
